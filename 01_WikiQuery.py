@@ -11,7 +11,7 @@ from pyspark import SparkContext
 
 SEPARATOR = "*******"
 
-# Set the spark context
+# Initialize the spark context
 sc = SparkContext("local", "WikiQuery")
 
 # Read textfile into RDD
@@ -48,5 +48,5 @@ print(enCounts)
 
 # Find english pages with more than 200000 pageviews during the 3 days of data coverage
 print(SEPARATOR)
-enCountsBig =enPages.map(lambda x: x.split(" ")).map(lambda x: (x[2], int(x[3]))).reduceByKey(lambda x, y: x + y, 40).filter(lambda x: x[1] > 200000).collect()
+enCountsBig = enPages.map(lambda x: x.split(" ")).map(lambda x: (x[2], int(x[3]))).reduceByKey(lambda x, y: x + y, 40).filter(lambda x: x[1] > 200000).collect()
 print(enCountsBig)
