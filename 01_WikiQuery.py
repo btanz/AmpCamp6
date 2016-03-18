@@ -9,6 +9,7 @@
 
 from pyspark import SparkContext
 
+# print output separation string
 SEPARATOR = "*******"
 
 # Initialize the spark context
