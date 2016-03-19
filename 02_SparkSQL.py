@@ -7,9 +7,11 @@
     http://ampcamp.berkeley.edu/6/exercises/getting-started.html
 """
 
+# import spark
 from pyspark import SparkContext
 from pyspark.sql import SQLContext
 
+# separator token for screen output
 SEPARATOR = "*******"
 
 
