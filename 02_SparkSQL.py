@@ -14,7 +14,6 @@ from pyspark.sql import SQLContext
 # separator token for screen output
 SEPARATOR = "*******"
 
-
 # Initialize the spark and sql contexts
 sc = SparkContext("local", "WikiQuerySQL")
 sqlContext = SQLContext(sc)
@@ -33,7 +32,8 @@ wikiData.registerTempTable("wikiData")
 result = sqlContext.sql("SELECT COUNT(*) AS pageCount FROM wikiData").collect()
 print(result[0].pageCount)
 
-
 # return the top ten user names by the number of pages they created
 resultUser = sqlContext.sql("SELECT username, COUNT(*) AS cnt FROM wikiData WHERE username <> '' GROUP BY username ORDER BY cnt DESC LIMIT 10").collect()
 print(resultUser)
+
+print(SEPARATOR)
